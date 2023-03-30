@@ -1,1 +1,6 @@
-<p>login works!</p>
+<form>
+  <custom-input [label]="'Usuário'" [id]="'user-input'" [type]="'text'" [(value)]="user" />
+  <custom-input [label]="'Senha'" [id]="'password-input'" [type]="'password'" [(value)]="password" />
+  <custom-input [label]="'Confirmar senha'" [id]="'confirm-password-input'" [type]="'password'" [(value)]="confirmation" />
+  <button type="button" (click)="checkRegister()">Entrar</button>
+</form>

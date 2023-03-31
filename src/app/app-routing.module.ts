@@ -6,11 +6,11 @@ import { NoAccessComponent } from "./pages/no-access/no-access.component";
 import { AccessGuard } from "./shared/guards/access.guard";
 
 const routes: Routes = [
-  // {
-  //   path: "",
-  //   pathMatch: "full",
-  //   redirectTo: "home",
-  // },
+  {
+    path: "",
+    pathMatch: "full",
+    redirectTo: "home",
+  },
   {
     path: "home",
     component: HomeComponent,
@@ -24,10 +24,10 @@ const routes: Routes = [
     path: "no-access",
     component: NoAccessComponent,
   },
-  // {
-  //   path: "**",
-  //   redirectTo: "home",
-  // },
+  {
+    path: "**",
+    redirectTo: "home",
+  },
 ];
 
 @NgModule({

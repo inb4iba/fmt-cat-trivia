@@ -14,8 +14,8 @@ let facts: Array<Fact>;
   styleUrls: ["./home.component.scss"],
 })
 export class HomeComponent implements OnInit {
-  image: SafeUrl = "";
-  gif: SafeUrl = "";
+  text = "";
+  imageUrl: SafeUrl = "";
 
   constructor(
     private catFactsService: CatFactsService,
@@ -26,14 +26,15 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.catFactsService.getFacts().subscribe((data: Array<Fact>) => {
       facts = data;
+      const i = Math.floor(Math.random() * facts.length);
+      this.text = data[i].text;
     });
     this.imageClicked();
-    this.gifClicked();
   }
 
   imageClicked() {
     this.cataasService.getImage().subscribe((data: Blob) => {
-      this.image = this.sanitizer.bypassSecurityTrustUrl(
+      this.imageUrl = this.sanitizer.bypassSecurityTrustUrl(
         URL.createObjectURL(data)
       );
     });
@@ -41,7 +42,7 @@ export class HomeComponent implements OnInit {
 
   gifClicked() {
     this.cataasService.getGIF().subscribe((data: Blob) => {
-      this.gif = this.sanitizer.bypassSecurityTrustUrl(
+      this.imageUrl = this.sanitizer.bypassSecurityTrustUrl(
         URL.createObjectURL(data)
       );
     });

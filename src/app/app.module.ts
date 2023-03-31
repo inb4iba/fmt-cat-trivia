@@ -2,11 +2,12 @@ import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 
 import { AppComponent } from "./app.component";
-import { LoginComponent } from "./login/login.component";
-import { HomeComponent } from "./home/home.component";
-import { NoAccessComponent } from "./no-access/no-access.component";
+import { LoginComponent } from "./pages/login/login.component";
+import { HomeComponent } from "./pages/home/home.component";
+import { NoAccessComponent } from "./pages/no-access/no-access.component";
 import { CustomInputComponent } from "./components/custom-input/custom-input.component";
 import { FormsModule } from "@angular/forms";
+import { AppRoutingModule } from "./app-routing.module";
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { FormsModule } from "@angular/forms";
     NoAccessComponent,
     CustomInputComponent,
   ],
-  imports: [BrowserModule, FormsModule],
+  imports: [BrowserModule, FormsModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })

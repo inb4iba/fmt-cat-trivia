@@ -1,5 +1,11 @@
-form {
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
+.input {
+    @apply border-2 px-3 py-2 rounded-md caret-purple-500 outline-purple-500;
+}
+
+.label {
+    @apply px-3 text-purple-700;
+}
+
+.input-container {
+    @apply flex flex-col;
 }

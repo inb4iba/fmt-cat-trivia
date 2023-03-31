@@ -13,6 +13,7 @@ export class ConnectionService {
 
   registerUser(user: User) {
     localStorage.setItem("usuarioLogado", JSON.stringify(user));
+    return true;
   }
 
   isUserConnected() {

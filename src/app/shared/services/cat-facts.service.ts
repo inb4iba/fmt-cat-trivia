@@ -26,7 +26,7 @@ export class CatFactsService {
 
   constructor(private http: HttpClient) {}
 
-  loadFacts() {
+  getFacts() {
     return this.http.get<Array<Fact>>(`${this.baseUrl}/facts`, {
       responseType: "json",
     });

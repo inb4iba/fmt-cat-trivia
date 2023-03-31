@@ -5,10 +5,11 @@
     fuga vel distinctio exercitationem doloribus nesciunt necessitatibus?
     Expedita officiis quae dolorum illum?
   </p>
-  <img src="../../../assets/Police_Officer.webp" alt="" />
+  <img [src]="image" alt="" />
+  <img [src]="gif" alt="" />
 </div>
 
 <div>
-  <button type="button" (click)="image()">Imagem</button>
-  <button type="button" (click)="gif()">GIF</button>
+  <button type="button" (click)="imageClicked()">Imagem</button>
+  <button type="button" (click)="gifClicked()">GIF</button>
 </div>

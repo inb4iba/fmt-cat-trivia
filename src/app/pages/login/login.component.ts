@@ -1,4 +1,8 @@
 import { Component } from "@angular/core";
+import {
+  ConnectionService,
+  User,
+} from "src/app/shared/services/connection.service";
 
 @Component({
   selector: "login",
@@ -9,6 +13,8 @@ export class LoginComponent {
   user = "";
   password = "";
   confirmation = "";
+
+  constructor(private connectionService: ConnectionService) {}
 
   checkRegister() {
     console.log("login | check register");
@@ -22,13 +28,10 @@ export class LoginComponent {
       return;
     }
 
-    localStorage.setItem(
-      "usuarioLogado",
-      JSON.stringify({ user: this.user, password: this.password })
-    );
-    this.user = "";
-    this.password = "";
-    this.confirmation = "";
+    const user: User = { username: this.user, password: this.password };
+    this.user = this.password = this.confirmation = "";
+
+    this.connectionService.registerUser(user);
   }
 
   passwordsMatch() {

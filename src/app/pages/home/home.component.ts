@@ -1,10 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { DomSanitizer, SafeUrl } from "@angular/platform-browser";
 import {
   CatFactsService,
   Fact,
 } from "src/app/shared/services/cat-facts.service";
-import { CataasService } from "src/app/shared/services/cataas.service";
 
 let facts: Array<Fact>;
 
@@ -14,14 +12,11 @@ let facts: Array<Fact>;
   styleUrls: ["./home.component.scss"],
 })
 export class HomeComponent implements OnInit {
+  private baseUrl = "https://cataas.com";
   text = "";
-  imageUrl: SafeUrl = "";
+  imageUrl = "";
 
-  constructor(
-    private catFactsService: CatFactsService,
-    private cataasService: CataasService,
-    private sanitizer: DomSanitizer
-  ) {}
+  constructor(private catFactsService: CatFactsService) {}
 
   ngOnInit() {
     this.catFactsService.getFacts().subscribe((data: Array<Fact>) => {
@@ -33,18 +28,10 @@ export class HomeComponent implements OnInit {
   }
 
   imageClicked() {
-    this.cataasService.getImage().subscribe((data: Blob) => {
-      this.imageUrl = this.sanitizer.bypassSecurityTrustUrl(
-        URL.createObjectURL(data)
-      );
-    });
+    this.imageUrl = `${this.baseUrl}/cat`;
   }
 
   gifClicked() {
-    this.cataasService.getGIF().subscribe((data: Blob) => {
-      this.imageUrl = this.sanitizer.bypassSecurityTrustUrl(
-        URL.createObjectURL(data)
-      );
-    });
+    this.imageUrl = `${this.baseUrl}/cat/gif`;
   }
 }

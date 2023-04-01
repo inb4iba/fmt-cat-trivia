@@ -12,9 +12,8 @@ let facts: Array<Fact>;
   styleUrls: ["./home.component.scss"],
 })
 export class HomeComponent implements OnInit {
-  private baseUrl = "https://cataas.com";
+  showGif = false;
   text = "";
-  imageUrl = "";
 
   constructor(private catFactsService: CatFactsService) {}
 
@@ -28,10 +27,10 @@ export class HomeComponent implements OnInit {
   }
 
   imageClicked() {
-    this.imageUrl = `${this.baseUrl}/cat`;
+    this.showGif = false;
   }
 
   gifClicked() {
-    this.imageUrl = `${this.baseUrl}/cat/gif`;
+    this.showGif = true;
   }
 }

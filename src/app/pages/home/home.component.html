@@ -2,10 +2,18 @@
   <div class="w-1/3 m-auto flex flex-col gap-4">
     <div class="inline-block p-3 border rounded-md shadow-md">
       <img
+        *ngIf="!showGif; else gif"
         class="aspect-square object-cover w-full rounded-md"
-        [src]="imageUrl"
-        alt=""
+        src="https://cataas.com/cat"
+        alt="cat"
       />
+      <ng-template #gif>
+        <img
+          class="aspect-square object-cover w-full rounded-md"
+          src="https://cataas.com/cat/gif"
+          alt="cat-gif"
+        />
+      </ng-template>
       <p class="px-4">
         {{ text }}
       </p>
